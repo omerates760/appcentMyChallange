@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "952861425940",
+    "firebase_url": "https://appcentchallange.firebaseio.com",
+    "project_id": "appcentchallange",
+    "storage_bucket": "appcentchallange.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952861425940:android:a43e100bc320ae71a20201",
+        "android_client_info": {
+          "package_name": "com.monofire.appcentchallange"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952861425940-f0qb303m7s3b1diuk7cr7dp2071m6i1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIbn49Pm1j-QECjX62xz0egyhu2biYi7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952861425940-f0qb303m7s3b1diuk7cr7dp2071m6i1v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
