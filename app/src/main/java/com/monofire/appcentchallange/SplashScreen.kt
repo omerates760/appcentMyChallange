@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.constraintlayout.motion.widget.MotionLayout
-import kotlinx.android.synthetic.main.activity_splash_screen.*
+import com.monofire.appcentchallange.ui.LoginActivity
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
