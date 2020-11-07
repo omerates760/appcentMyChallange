@@ -35,8 +35,7 @@
             <TextView
                 android:id="@+id/campaignPrice"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1212" />
+                android:layout_height="wrap_content" />
 
             <ImageView
                 android:layout_width="16dp"

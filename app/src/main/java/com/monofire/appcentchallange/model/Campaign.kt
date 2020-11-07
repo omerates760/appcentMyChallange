@@ -1,3 +1,11 @@
 package com.monofire.appcentchallange.model
 
-class Campaign(val campaignId: String, val campaingImage: String, val campaingPrice: Int)
+import java.io.Serializable
+
+class Campaign(
+    val campaignId: String,
+    val campaingImage: String,
+    val campaingPrice: Int,
+    val campaignDetail: String
+) :
+    Serializable

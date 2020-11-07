@@ -23,7 +23,8 @@ class CampaignHelper {
                     val campaign = Campaign(
                         data.child("campaignsId").value.toString(),
                         data.child("campaignsImage").value.toString(),
-                        data.child("campaignsPrice").value.toString().toInt()
+                        data.child("campaignsPrice").value.toString().toInt(),
+                        data.child("campaignsDetail").value.toString()
                     )
                     campaignList.add(campaign)
                 }

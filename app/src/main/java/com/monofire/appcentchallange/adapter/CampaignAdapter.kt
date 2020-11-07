@@ -1,12 +1,16 @@
 package com.monofire.appcentchallange.adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.monofire.appcentchallange.R
@@ -25,6 +29,12 @@ class CampaignAdapter(val list: MutableList<Campaign>, private val context: Cont
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         Glide.with(context).load(list[position].campaingImage).placeholder(R.drawable.appcentlogo)
             .into(holder.img)
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("campaingDetails", list[position])
+            it.findNavController()
+                .navigate(R.id.action_homeFragment_to_campaignDetailFragment, bundle)
+        }
         holder.price.text = list[position].campaingPrice.toString()
 
     }

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_campaignDetailFragment"
             app:destination="@id/campaignDetailFragment" />
+        <argument
+            android:name="campaingDetails"
+            app:argType="com.monofire.appcentchallange.model.Campaign" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
