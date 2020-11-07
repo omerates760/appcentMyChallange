@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.monofire.appcentchallange.R
 import com.monofire.appcentchallange.adapter.CampaignAdapter
 import com.monofire.appcentchallange.db.CampaignHelper
+import com.monofire.appcentchallange.db.ShareDb
 import com.monofire.appcentchallange.listener.CampaignFetchListener
 import com.monofire.appcentchallange.model.Campaign
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -29,6 +30,14 @@ class HomeFragment : Fragment(), CampaignFetchListener {
         super.onViewCreated(view, savedInstanceState)
         campaingHelper = CampaignHelper()
         campaingHelper.campaignFetchListener = this
+        txt_name.text = "Hoşgeldin ${ShareDb.getUserName(requireContext())} :)"
+        txtTotal.text =
+            "Toplam Bakiye: ${ShareDb.getUserTotal(requireContext())}"
+        //TODO 12saatte bir 10 altın verilecek.Timer yerleştir.
+        txtDiary.text="Günlük 10 altın kazanmak için kalan süre "
+        txtBuyNow.setOnClickListener {
+            //TODO hesaba 10 altın eklenecek
+        }
     }
 
     override fun campaingList(list: MutableList<Campaign>) {

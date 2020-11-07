@@ -28,7 +28,7 @@ object ShareDb {
     fun getUserName(context: Context) : String? {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        return sharedPreferences.getString("userNick","asa")
+        return sharedPreferences.getString("userNick",".")
     }
 
 }
