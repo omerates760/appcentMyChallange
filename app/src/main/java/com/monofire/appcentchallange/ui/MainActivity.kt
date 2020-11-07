@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             topLevelDestinationIds = setOf (
                 R.id.homeFragment,
+                R.id.reportsFragment,
                 R.id.profileFragment
             )
         )

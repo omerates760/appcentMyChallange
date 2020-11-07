@@ -1,4 +1,4 @@
-package com.monofire.appcentchallange.ui
+package com.monofire.appcentchallange.ui.user
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,20 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.monofire.appcentchallange.R
 
-
-class HomeFragment : Fragment() {
-
+class ReportsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_reports, container, false)
     }
 
 }
