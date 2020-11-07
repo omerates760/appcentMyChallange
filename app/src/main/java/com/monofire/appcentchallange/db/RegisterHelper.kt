@@ -4,13 +4,13 @@ import android.util.Log
 import android.util.Patterns
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.monofire.appcentchallange.listener.RegisterCheckListener
+import com.monofire.appcentchallange.listener.UserCheckListener
 import com.monofire.appcentchallange.model.User
 
 class RegisterHelper(private val user: User) {
     private var isCheck = false
     private val session = FirebaseAuth.getInstance()
-    var registerCheckListener:RegisterCheckListener?=null
+    var registerCheckListener:UserCheckListener?=null
 
     fun userInputisCheck(): Boolean {
 
@@ -29,7 +29,7 @@ class RegisterHelper(private val user: User) {
                 user.userId = session.currentUser!!.uid
                 FirebaseDatabase.getInstance().getReference("Users").child(user.userId).setValue(user)
                     .addOnCompleteListener {
-                        registerCheckListener?.saveUser(true)
+                        registerCheckListener?.savedUser(true)
                         Log.e("sonuc", "başarılı")
                     }
 

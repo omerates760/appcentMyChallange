@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_login"
-    app:startDestination="@id/userContentFragment2">
+    app:startDestination="@id/userContentFragment">
 
     <fragment
-        android:id="@+id/userContentFragment2"
+        android:id="@+id/userContentFragment"
         android:name="com.monofire.appcentchallange.ui.user.UserContentFragment"
         android:label="fragment_user_content"
         tools:layout="@layout/fragment_user_content" />

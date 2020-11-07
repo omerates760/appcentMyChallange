@@ -16,13 +16,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.monofire.appcentchallange.R
 import com.monofire.appcentchallange.db.RegisterHelper
 import com.monofire.appcentchallange.event.snackbar
-import com.monofire.appcentchallange.listener.RegisterCheckListener
+import com.monofire.appcentchallange.listener.UserCheckListener
 import com.monofire.appcentchallange.model.User
 import com.monofire.appcentchallange.ui.MainActivity
 import kotlinx.android.synthetic.main.fragment_register.*
 
 
-class RegisterFragment : Fragment(), RegisterCheckListener {
+class RegisterFragment : Fragment(), UserCheckListener {
     lateinit var registerHelper: RegisterHelper
     private var nickName = ""
     private var userMail = ""
@@ -58,7 +58,7 @@ class RegisterFragment : Fragment(), RegisterCheckListener {
         }
     }
 
-    override fun saveUser(isSaved: Boolean) {
+    override fun savedUser(isSaved: Boolean) {
         progressBar.visibility = View.GONE
         if (isSaved) {
             val intent = Intent(activity, MainActivity::class.java)
@@ -67,5 +67,9 @@ class RegisterFragment : Fragment(), RegisterCheckListener {
         } else {
             context?.snackbar(requireView(),"Hata Oluştu.")
         }
+    }
+
+    override fun loggedUser(isLogin: Boolean, errorMessage: String) {
+
     }
 }

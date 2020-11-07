@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/userContentFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/userContentFragment"
-        android:name="com.monofire.appcentchallange.ui.user.UserContentFragment"
-        android:label="fragment_user_content"
-        tools:layout="@layout/fragment_user_content" >
-    </fragment>
+        android:id="@+id/homeFragment"
+        android:name="com.monofire.appcentchallange.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>
