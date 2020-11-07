@@ -18,13 +18,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViews() {
         // Finding the Navigation Controller
-        var navController = findNavController(R.id.nav_host)
+        val navController = findNavController(R.id.nav_host)
 
         // Setting Navigation Controller with the BottomNavigationView
         bottomNavView.setupWithNavController(navController)
 
         // Setting Up ActionBar with Navigation Controller
-        var appBarConfiguration = AppBarConfiguration(
+        val appBarConfiguration = AppBarConfiguration(
             topLevelDestinationIds = setOf (
                 R.id.homeFragment,
                 R.id.profileFragment
