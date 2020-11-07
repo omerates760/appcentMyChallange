@@ -30,7 +30,6 @@ class RegisterHelper(private val user: User) {
                 FirebaseDatabase.getInstance().getReference("Users").child(user.userId).setValue(user)
                     .addOnCompleteListener {
                         registerCheckListener?.savedUser(true)
-                        Log.e("sonuc", "başarılı")
                     }
 
             }

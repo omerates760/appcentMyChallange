@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.bumptech.glide.Glide
+import com.monofire.appcentchallange.db.ShareDb
 import com.monofire.appcentchallange.model.Campaign
 import kotlinx.android.synthetic.main.fragment_campaign_detail.*
 
@@ -19,7 +21,6 @@ class CampaignDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_campaign_detail, container, false)
     }
 
@@ -31,17 +32,45 @@ class CampaignDetailFragment : Fragment() {
         txtCampaingDetail.text = campaign.campaignDetail
         txtPrice.text = "Ödenecek Tutar:${campaign.campaingPrice}"
 
-        dialog = SweetAlertDialog(requireContext(), SweetAlertDialog.SUCCESS_TYPE)
-            .setTitleText("Kampanya")
+
+        btn_buy.setOnClickListener {
+            if (ShareDb.getUserTotal(requireContext()).toString().toInt() > campaign.campaingPrice.toInt()) {
+                campaignBuyCheck(true)
+            } else {
+                campaignBuyCheck(false)
+            }
+
+        }
+
+    }
+
+    private fun campaignBuyCheck(isBuy: Boolean) {
+        when (isBuy) {
+            true -> {
+                alertType(
+                    SweetAlertDialog.SUCCESS_TYPE,
+                    "Ödeme Başarılı,",
+                    "Kampanya dahilinde 24 saat geçerli olacaktır."
+                )
+            }
+            false -> {
+                alertType(SweetAlertDialog.ERROR_TYPE, "Ödeme Başarısız", "Bakiyeniz yetersizdir.")
+            }
+
+        }
+    }
+
+    private fun alertType(type: Int, title: String, subTitle: String) {
+        SweetAlertDialog(requireContext(), type)
+            .setTitleText(title)
+            .setContentText(subTitle)
             .setConfirmButton(
                 "AnaSayfaya Dön"
             ) {
-                findNavController().navigateUp()
-                dialog.dismiss()
-            }
-        btn_buy.setOnClickListener {
-            dialog.show()
-        }
+
+               findNavController().navigateUp()
+                it.cancel()
+            }.show()
 
     }
 

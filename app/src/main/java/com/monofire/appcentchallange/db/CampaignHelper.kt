@@ -1,6 +1,7 @@
 package com.monofire.appcentchallange.db
 
 import android.util.Log
+import android.util.LogPrinter
 import com.google.firebase.database.*
 import com.monofire.appcentchallange.listener.CampaignFetchListener
 import com.monofire.appcentchallange.model.Campaign
@@ -35,5 +36,9 @@ class CampaignHelper {
             }
 
         })
+    }
+    private fun userCampaignBuy(price:Int){
+
+
     }
 }

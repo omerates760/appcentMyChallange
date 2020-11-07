@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.monofire.appcentchallange.R
 import com.monofire.appcentchallange.db.RegisterHelper
+import com.monofire.appcentchallange.db.ShareDb
 import com.monofire.appcentchallange.event.snackbar
 import com.monofire.appcentchallange.listener.UserCheckListener
 import com.monofire.appcentchallange.model.User
@@ -27,7 +28,7 @@ class RegisterFragment : Fragment(), UserCheckListener {
     private var nickName = ""
     private var userMail = ""
     private var userPassword = ""
-
+    private lateinit var user: User
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,8 +44,8 @@ class RegisterFragment : Fragment(), UserCheckListener {
             nickName = register_nick_name.editText?.text.toString().trim()
             userMail = register_eMail.editText?.text.toString().trim()
             userPassword = register_password.editText?.text.toString().trim()
-
-            registerHelper = RegisterHelper(User(nickName, userMail, userPassword))
+            user = User(nickName, userMail, userPassword,10)
+            registerHelper = RegisterHelper(user)
             registerHelper.registerCheckListener = this
 
             progressBar.visibility = View.VISIBLE
@@ -52,7 +53,7 @@ class RegisterFragment : Fragment(), UserCheckListener {
                 registerHelper.userSaveData()
             } else {
                 progressBar.visibility = View.GONE
-                context?.snackbar(requireView(),"Lütfen boş kutucukları doldurunuz.")
+                context?.snackbar(requireView(), "Lütfen boş kutucukları doldurunuz.")
             }
 
         }
@@ -61,11 +62,12 @@ class RegisterFragment : Fragment(), UserCheckListener {
     override fun savedUser(isSaved: Boolean) {
         progressBar.visibility = View.GONE
         if (isSaved) {
+            ShareDb.editUserData(requireContext(), user)
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
             activity?.finish()
         } else {
-            context?.snackbar(requireView(),"Hata Oluştu.")
+            context?.snackbar(requireView(), "Hata Oluştu.")
         }
     }
 
