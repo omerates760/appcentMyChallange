@@ -1,17 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/category_border"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="210dp"
     android:layout_margin="10dp"
+    android:clickable="true"
+    android:focusable="true"
+
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp">
 
-    <ImageView
-        android:id="@+id/imgCampaignId"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:scaleType="fitXY"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgCampaignId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="15dp"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:id="@+id/campaignPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1212" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/dollar" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
 
 </androidx.cardview.widget.CardView>

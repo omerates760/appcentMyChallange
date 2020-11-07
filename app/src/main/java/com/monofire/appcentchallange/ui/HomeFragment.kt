@@ -5,12 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.monofire.appcentchallange.R
+import com.monofire.appcentchallange.adapter.CampaignAdapter
+import com.monofire.appcentchallange.db.CampaignHelper
+import com.monofire.appcentchallange.listener.CampaignFetchListener
+import com.monofire.appcentchallange.model.Campaign
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class HomeFragment : Fragment() {
-
-
+class HomeFragment : Fragment(), CampaignFetchListener {
+    lateinit var adapter: CampaignAdapter
+    lateinit var campaingHelper: CampaignHelper
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,6 +27,19 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        campaingHelper = CampaignHelper()
+        campaingHelper.campaignFetchListener = this
+    }
+
+    override fun campaingList(list: MutableList<Campaign>) {
+        adapter = CampaignAdapter(list, requireContext())
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        recyclerview_buy.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recyclerview_buy.adapter = adapter
     }
 
 }

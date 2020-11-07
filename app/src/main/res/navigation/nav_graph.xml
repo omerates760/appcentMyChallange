@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.monofire.appcentchallange.ui.HomeFragment"
         android:label="AnaSayfa"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_campaignDetailFragment"
+            app:destination="@id/campaignDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.monofire.appcentchallange.ui.user.ProfileFragment"
@@ -20,4 +24,9 @@
         android:name="com.monofire.appcentchallange.ui.user.ReportsFragment"
         android:label="fragment_reports"
         tools:layout="@layout/fragment_reports" />
+    <fragment
+        android:id="@+id/campaignDetailFragment"
+        android:name="com.monofire.appcentchallange.CampaignDetailFragment"
+        android:label="fragment_campaign_detail"
+        tools:layout="@layout/fragment_campaign_detail" />
 </navigation>
