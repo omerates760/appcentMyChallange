@@ -16,6 +16,9 @@
         <argument
             android:name="campaingDetails"
             app:argType="com.monofire.appcentchallange.model.Campaign" />
+        <action
+            android:id="@+id/action_homeFragment_to_earnFragment"
+            app:destination="@id/earnFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -32,4 +35,9 @@
         android:name="com.monofire.appcentchallange.CampaignDetailFragment"
         android:label="fragment_campaign_detail"
         tools:layout="@layout/fragment_campaign_detail" />
+    <fragment
+        android:id="@+id/earnFragment"
+        android:name="com.monofire.appcentchallange.EarnFragment"
+        android:label="fragment_earn"
+        tools:layout="@layout/fragment_earn" />
 </navigation>

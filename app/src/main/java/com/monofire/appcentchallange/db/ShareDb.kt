@@ -25,10 +25,43 @@ object ShareDb {
 
     }
 
-    fun getUserName(context: Context) : String? {
+    fun getUserName(context: Context): String? {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        return sharedPreferences.getString("userNick",".")
+        return sharedPreferences.getString("userNick", ".")
     }
+
+    fun setInfoCategoryCurrentTime(context: Context, time: Long) {
+
+        if (!getInfoCategoryisLogin(context)){
+            val sharedPreferences: SharedPreferences =
+                context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+            val editor = sharedPreferences.edit()
+            editor.putLong("categoryInfoTime", time)
+            editor.apply()
+            setInfoCategoryisLogin(context)
+        }
+
+    }
+    fun getInfoCategoryCurrentTime(context: Context): Long {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getLong("categoryInfoTime",0)
+    }
+    fun setInfoCategoryisLogin(context: Context){
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("categoryInfoIsLog",true)
+        editor.apply()
+    }
+    fun getInfoCategoryisLogin(context: Context): Boolean {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getBoolean("categoryInfoIsLog", false)
+    }
+
+
+
 
 }

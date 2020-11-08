@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.monofire.appcentchallange.R
 import com.monofire.appcentchallange.adapter.CampaignAdapter
@@ -12,6 +13,7 @@ import com.monofire.appcentchallange.db.CampaignHelper
 import com.monofire.appcentchallange.db.ShareDb
 import com.monofire.appcentchallange.listener.CampaignFetchListener
 import com.monofire.appcentchallange.model.Campaign
+import kotlinx.android.synthetic.main.earn_item_row.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -34,9 +36,12 @@ class HomeFragment : Fragment(), CampaignFetchListener {
         txtTotal.text =
             "Toplam Bakiye: ${ShareDb.getUserTotal(requireContext())}"
         //TODO 12saatte bir 10 altın verilecek.Timer yerleştir.
-        txtDiary.text="Günlük 10 altın kazanmak için kalan süre "
+        txtDiary.text = "Günlük 10 altın kazanmak için kalan süre "
         txtBuyNow.setOnClickListener {
             //TODO hesaba 10 altın eklenecek
+        }
+        categoryInfo.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_earnFragment)
         }
     }
 
