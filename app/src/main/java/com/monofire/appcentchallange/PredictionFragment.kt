@@ -45,6 +45,8 @@ class PredictionFragment : Fragment(), PredictionListener {
                             requireContext(),
                             ShareDb.getUserTotal(requireContext()) + prediction.predictionPrice
                         )
+                        ShareDb.setCount(requireContext(), 3,prediction.predictionPrice)
+
                     } else {
                         alertType(
                             SweetAlertDialog.ERROR_TYPE,

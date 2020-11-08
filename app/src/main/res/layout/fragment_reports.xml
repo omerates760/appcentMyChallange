@@ -1,14 +1,420 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="6"
     tools:context=".ui.user.ReportsFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="200dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="10"
+            android:layout_margin="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="5dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/worker"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Muhtar"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:layout_margin="15dp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10"
+                android:layout_margin="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Katılım Sayısı"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="10 adet"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_margin="15dp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10"
+                android:layout_margin="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Katılım Sayısı"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="10 adet"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_margin="15dp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10"
+                android:layout_margin="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Katılım Sayısı"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="10 adet"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_margin="15dp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10"
+                android:layout_margin="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Katılım Sayısı"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="10 adet"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_margin="15dp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10"
+                android:layout_margin="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_weight="4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/campaign_report" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Katıldığınız toplam kampanya"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txtCampainCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="10 adet"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_margin="15dp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10"
+                android:layout_margin="5dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_weight="4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/shopping_report" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Harcadığınız toplam tutar"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txtCampaignTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="10 adet"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_margin="15dp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="10"
+            android:layout_margin="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="5dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_weight="4"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:src="@drawable/question_report" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Bilgi yarışmalarından kazanılan tutar"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtInfoTotal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="1256"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:layout_margin="15dp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/categoryInfo"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="10"
+            android:layout_margin="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="5dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_weight="4"
+                android:id="@+id/category_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:src="@drawable/guess_report" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Sayı tahmin oyunlarından kazanılan tutar"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtPreTotal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="10 adet"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:layout_margin="15dp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</LinearLayout>
+
+</LinearLayout>
+</ScrollView>

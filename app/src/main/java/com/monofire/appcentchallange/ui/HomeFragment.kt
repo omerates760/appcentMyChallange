@@ -41,6 +41,7 @@ class HomeFragment : Fragment(), CampaignFetchListener {
             ShareDb.editUserTotal(requireContext(), 10)
             txtTotal.text =
                 "Toplam Bakiye: ${ShareDb.getUserTotal(requireContext())}"
+            ShareDb.setCount(requireContext(),1,0)
         }
         txt_name.text = "Hoşgeldin ${ShareDb.getUserName(requireContext())} :)"
         txtTotal.text =

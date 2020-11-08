@@ -2,6 +2,7 @@ package com.monofire.appcentchallange.db
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.monofire.appcentchallange.model.Count
 import com.monofire.appcentchallange.model.User
 
 object ShareDb {
@@ -86,12 +87,38 @@ object ShareDb {
         return sharedPreferences.getBoolean("InfoIsLog", false)
     }
 
-    fun setCampaignBuyCount(context: Context) {
+    fun setCount(context: Context, option: Int, price: Int) {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         val editor = sharedPreferences.edit()
-        editor.putInt("campaignBuyCount", getCampaignBuyCount(context) + 1)
-        editor.apply()
+        when (option) {
+            0 -> {
+                editor.putInt("campaignBuyCount", getCampaignBuyCount(context) + 1)
+                editor.putInt("campaignBuyTotal", getCampaignBuyTotal(context) + price)
+
+                editor.apply()
+            }
+            1 -> {
+                editor.putInt("diaryTotal", getDiaryCount(context) + price)
+                editor.apply()
+            }
+            2 -> {
+                editor.putInt("infoTotal", getInfoCount(context) + price)
+                editor.apply()
+            }
+            3 -> {
+                editor.putInt("PredictionTotal", getPreCount(context) + price)
+                editor.apply()
+            }
+        }
+
+
+    }
+
+    private fun getCampaignBuyTotal(context: Context): Int {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getInt("campaignBuyTotal", 0)
     }
 
     fun getCampaignBuyCount(context: Context): Int {
@@ -100,5 +127,31 @@ object ShareDb {
         return sharedPreferences.getInt("campaignBuyCount", 0)
     }
 
+
+    fun getDiaryCount(context: Context): Int {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getInt("diaryTotal", 0)
+    }
+
+    fun getInfoCount(context: Context): Int {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getInt("infoTotal", 0)
+    }
+
+    fun getPreCount(context: Context): Int {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getInt("PredictionTotal", 0)
+    }
+
+    fun countPrint(context: Context): Count {
+
+        return Count(
+            getUserTotal(context), getCampaignBuyCount(context), getCampaignBuyTotal(context),
+            getInfoCount(context), getPreCount(context)
+        )
+    }
 
 }

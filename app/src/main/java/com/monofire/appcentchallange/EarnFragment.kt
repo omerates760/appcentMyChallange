@@ -48,7 +48,6 @@ class EarnFragment : Fragment(), View.OnClickListener, QuestionListener {
         waitNewQuestionTime = ShareDb.getInfoCategoryCurrentTime(requireContext())
 
 
-
         val total = (waitNewQuestionTime + 43200000)
         if (total > System.currentTimeMillis()) {
             alertType(
@@ -141,6 +140,8 @@ class EarnFragment : Fragment(), View.OnClickListener, QuestionListener {
                     "Ana sayfaya Dön"
                 )
                 ShareDb.editUserTotal(requireContext(), question.questionPrice)
+                ShareDb.setCount(requireContext(), 2, question.questionPrice)
+
             }
             else -> {
                 alertType(

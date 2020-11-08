@@ -24,7 +24,7 @@ class CampaignDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        campaign= arguments?.getSerializable("campaingDetails") as Campaign
+        campaign = arguments?.getSerializable("campaingDetails") as Campaign
         Glide.with(view).load(campaign.campaingImage).placeholder(R.drawable.appcentlogo)
             .into(img_campaing)
         txtCampaingDetail.text = campaign.campaignDetail
@@ -33,7 +33,7 @@ class CampaignDetailFragment : Fragment() {
 
         btn_buy.setOnClickListener {
             if (ShareDb.getUserTotal(requireContext()).toString()
-                    .toInt() > campaign.campaingPrice.toInt()
+                    .toInt() > campaign.campaingPrice
             ) {
                 campaignBuyCheck(true)
             } else {
@@ -53,6 +53,7 @@ class CampaignDetailFragment : Fragment() {
                     "Kampanya dahilinde 24 saat geçerli olacaktır."
                 )
                 ShareDb.editUserTotal(requireContext(), -campaign.campaingPrice)
+                ShareDb.setCount(requireContext(),0,campaign.campaingPrice)
             }
             false -> {
                 alertType(SweetAlertDialog.ERROR_TYPE, "Ödeme Başarısız", "Bakiyeniz yetersizdir.")
