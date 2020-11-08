@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_earnFragment"
             app:destination="@id/earnFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_predictionFragment"
+            app:destination="@id/predictionFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -32,7 +35,7 @@
         tools:layout="@layout/fragment_reports" />
     <fragment
         android:id="@+id/campaignDetailFragment"
-        android:name="com.monofire.appcentchallange.CampaignDetailFragment"
+        android:name="com.monofire.appcentchallange.ui.CampaignDetailFragment"
         android:label="Kampanya Detayları"
         tools:layout="@layout/fragment_campaign_detail" />
     <fragment
@@ -40,4 +43,9 @@
         android:name="com.monofire.appcentchallange.EarnFragment"
         android:label="Bil Kazan"
         tools:layout="@layout/fragment_earn" />
+    <fragment
+        android:id="@+id/predictionFragment"
+        android:name="com.monofire.appcentchallange.PredictionFragment"
+        android:label="fragment_prediction"
+        tools:layout="@layout/fragment_prediction" />
 </navigation>

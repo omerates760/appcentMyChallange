@@ -1,6 +1,8 @@
 package com.monofire.appcentchallange.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,20 +30,26 @@ class HomeFragment : Fragment(), CampaignFetchListener {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         campaingHelper = CampaignHelper()
         campaingHelper.campaignFetchListener = this
+
+        txtDiary.text = "Günlük 10 altın kazanmak için kalan süre "
+        txtBuyNow.setOnClickListener {
+            ShareDb.editUserTotal(requireContext(), 10)
+            txtTotal.text =
+                "Toplam Bakiye: ${ShareDb.getUserTotal(requireContext())}"
+        }
         txt_name.text = "Hoşgeldin ${ShareDb.getUserName(requireContext())} :)"
         txtTotal.text =
             "Toplam Bakiye: ${ShareDb.getUserTotal(requireContext())}"
-        //TODO 12saatte bir 10 altın verilecek.Timer yerleştir.
-        txtDiary.text = "Günlük 10 altın kazanmak için kalan süre "
-        txtBuyNow.setOnClickListener {
-            //TODO hesaba 10 altın eklenecek
-        }
         categoryInfo.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_earnFragment)
+        }
+        categoryPrediction.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_predictionFragment)
         }
     }
 

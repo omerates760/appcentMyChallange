@@ -14,8 +14,22 @@ object ShareDb {
         editor.putInt("userTotal", user.total)
         editor.putString("userNick", user.nickName)
         editor.putString("userId", user.userId)
+        editor.putString("userMail", user.eMail)
+        editor.putString("userPassword", user.passWord)
         editor.apply()
 
+    }
+
+    fun getUserMail(context: Context): String? {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getString("userMail", "BULUNAMADI")
+    }
+
+    fun getUserPassword(context: Context): String? {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getString("userPassword", "BULUNAMADI")
     }
 
     fun editUserTotal(context: Context, price: Int) {
@@ -70,6 +84,20 @@ object ShareDb {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         return sharedPreferences.getBoolean("InfoIsLog", false)
+    }
+
+    fun setCampaignBuyCount(context: Context) {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        val editor = sharedPreferences.edit()
+        editor.putInt("campaignBuyCount", getCampaignBuyCount(context) + 1)
+        editor.apply()
+    }
+
+    fun getCampaignBuyCount(context: Context): Int {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getInt("campaignBuyCount", 0)
     }
 
 

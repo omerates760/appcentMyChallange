@@ -54,7 +54,7 @@ class EarnFragment : Fragment(), View.OnClickListener, QuestionListener {
             alertType(
                 SweetAlertDialog.WARNING_TYPE,
                 "Bilgilendirme",
-                "Soru için verilen süre 15 saniyedir.",
+                "Soru için verilen süre 20 saniyedir.",
                 "Başla"
             )
         } else {

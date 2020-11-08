@@ -60,6 +60,7 @@
                             android:weightSum="3">
 
                             <TextView
+                                android:id="@+id/userNickname"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
@@ -92,6 +93,7 @@
                             android:weightSum="3">
 
                             <TextView
+                                android:id="@+id/userMail"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
@@ -124,10 +126,12 @@
                             android:weightSum="3">
 
                             <TextView
+                                android:id="@+id/userPassword"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
                                 android:layout_weight="2"
+                                android:inputType="textPassword"
                                 android:padding="18dp"
                                 android:text="Şifre"
                                 android:textSize="18sp" />
