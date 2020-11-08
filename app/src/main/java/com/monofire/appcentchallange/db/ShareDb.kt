@@ -99,20 +99,41 @@ object ShareDb {
                 editor.apply()
             }
             1 -> {
-                editor.putInt("diaryTotal", getDiaryCount(context) + price)
+                editor.putInt("diaryyCount", getdiaryyCount(context) + 1)
+                editor.putInt("diaryTotal", getDiaryTotal(context) + price)
                 editor.apply()
             }
             2 -> {
+                editor.putInt("infoCount", getInfooCount(context) + 1)
                 editor.putInt("infoTotal", getInfoCount(context) + price)
                 editor.apply()
             }
             3 -> {
-                editor.putInt("PredictionTotal", getPreCount(context) + price)
+                editor.putInt("PredictionCount", getPreeCount(context) + 1)
+                editor.putInt("PredictionTotal", getPreTotal(context) + price)
                 editor.apply()
             }
         }
 
 
+    }
+
+    private fun getPreeCount(context: Context): Int {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getInt("PredictionCount", 0)
+    }
+
+    private fun getInfooCount(context: Context): Int {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getInt("infoCount", 0)
+    }
+
+    private fun getdiaryyCount(context: Context): Int {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        return sharedPreferences.getInt("diaryyCount", 0)
     }
 
     private fun getCampaignBuyTotal(context: Context): Int {
@@ -128,7 +149,7 @@ object ShareDb {
     }
 
 
-    fun getDiaryCount(context: Context): Int {
+    fun getDiaryTotal(context: Context): Int {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         return sharedPreferences.getInt("diaryTotal", 0)
@@ -140,7 +161,7 @@ object ShareDb {
         return sharedPreferences.getInt("infoTotal", 0)
     }
 
-    fun getPreCount(context: Context): Int {
+    fun getPreTotal(context: Context): Int {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         return sharedPreferences.getInt("PredictionTotal", 0)
@@ -149,8 +170,16 @@ object ShareDb {
     fun countPrint(context: Context): Count {
 
         return Count(
-            getUserTotal(context), getCampaignBuyCount(context), getCampaignBuyTotal(context),
-            getInfoCount(context), getPreCount(context)
+            getUserTotal(context),
+            getCampaignBuyCount(context),
+            getCampaignBuyTotal(context),
+            getInfoCount(context),
+            getPreTotal(context),
+            getInfooCount(context),
+            getPreeCount(context),
+            getDiaryTotal(context),
+            getdiaryyCount(context)
+
         )
     }
 

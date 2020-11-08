@@ -22,8 +22,15 @@ class ReportsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val reports: Count = ShareDb.countPrint(requireContext())
-        txtCampainCount.text = "${reports.campaign} adet"
+
+        txtCampainCount.text = "${reports.campaign}"
+
+        txtInfoCount.text = "${reports.infoCount}"
+        txtPreCount.text = "${reports.preCount}"
+        txtDaryCount.text = "${reports.diaryCount}"
+
         txtCampaignTotal.text = "${reports.totalBuy}"
+        txtDiaryTotal.text = "${reports.diaryTotal}"
         txtInfoTotal.text = "${reports.info}"
         txtPreTotal.text = "${reports.pre}"
 
