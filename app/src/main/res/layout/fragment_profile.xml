@@ -57,28 +57,26 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="2.5">
+                            android:weightSum="3">
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
-                                android:layout_weight="1"
+                                android:layout_weight="2"
                                 android:padding="18dp"
                                 android:text="Kullanıcı Adı"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/txtNickName"
+                            <ImageView
+                                android:id="@+id/editNickname"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
-                                android:layout_weight="1.5"
+                                android:layout_weight="1"
                                 android:gravity="end"
                                 android:padding="18dp"
-                                android:text=""
-                                android:textColor="#000"
-                                android:textSize="18sp" />
+                                android:src="@drawable/edit" />
 
                         </LinearLayout>
 
@@ -91,28 +89,26 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="2.5">
+                            android:weightSum="3">
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
-                                android:layout_weight="0.7"
+                                android:layout_weight="2"
                                 android:padding="18dp"
                                 android:text="E-Posta"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/txtEmail"
+                            <ImageView
+                                android:id="@+id/editMail"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
-                                android:layout_weight="1.8"
+                                android:layout_weight="1"
                                 android:gravity="end"
                                 android:padding="18dp"
-                                android:text=""
-                                android:textColor="#000"
-                                android:textSize="18sp" />
+                                android:src="@drawable/edit" />
 
                         </LinearLayout>
 
@@ -125,44 +121,33 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="2">
+                            android:weightSum="3">
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
-                                android:layout_weight="1"
+                                android:layout_weight="2"
                                 android:padding="18dp"
                                 android:text="Şifre"
                                 android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/txtPassword"
-                                android:layout_width="match_parent"
+
+                            <ImageView
+                                android:id="@+id/editPassword"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
                                 android:layout_weight="1"
                                 android:gravity="end"
                                 android:padding="18dp"
-                                android:inputType="textPassword"
-                                android:text=""
-                                android:textColor="#000"
-                                android:textSize="18sp" />
+                                android:src="@drawable/edit" />
 
                         </LinearLayout>
 
                     </LinearLayout>
 
-                    <Button
-                        android:id="@+id/btn_profile_edit"
-                        style="@style/Widget.MaterialComponents.Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="15dp"
-                        android:layout_marginTop="100dp"
-                        android:layout_gravity="center_horizontal"
-                        android:paddingBottom="15dp"
-                        android:text="Düzenle" />
+
                 </LinearLayout>
 
 

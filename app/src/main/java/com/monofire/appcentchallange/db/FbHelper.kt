@@ -5,6 +5,7 @@ import com.google.firebase.database.*
 import com.monofire.appcentchallange.listener.QuestionListener
 import com.monofire.appcentchallange.model.Campaign
 import com.monofire.appcentchallange.model.Question
+import com.monofire.appcentchallange.model.User
 
 class FbHelper {
     private val firebaseDatabase: DatabaseReference =
@@ -41,5 +42,14 @@ class FbHelper {
             }
 
         })
+    }
+    fun userUpdateProfile(
+        user: User,
+    ) {
+        ref.child("Users").child(user.userId).apply {
+            child("email").setValue(user.eMail)
+            child("nickName").setValue(user.eMail)
+            child("passWord").setValue(user.eMail)
+        }
     }
 }
