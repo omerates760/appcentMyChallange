@@ -43,11 +43,14 @@ class EarnFragment : Fragment(), View.OnClickListener, QuestionListener {
         fbHelper = FbHelper()
         fbHelper.questionListener = this
         fbHelper.getQuestion()
+
         ShareDb.setInfoCategoryCurrentTime(requireContext(), System.currentTimeMillis())
         waitNewQuestionTime = ShareDb.getInfoCategoryCurrentTime(requireContext())
 
+
+
         val total = (waitNewQuestionTime + 43200000)
-        if (total < System.currentTimeMillis()) {
+        if (total > System.currentTimeMillis()) {
             alertType(
                 SweetAlertDialog.WARNING_TYPE,
                 "Bilgilendirme",
@@ -58,7 +61,7 @@ class EarnFragment : Fragment(), View.OnClickListener, QuestionListener {
             alertType(
                 SweetAlertDialog.ERROR_TYPE,
                 "Bilgilendirme",
-                "Yeni soru saat ${dateConvert.getDate(waitNewQuestionTime +43200000)} da yayınlanacaktır.",
+                "Yeni soru saat ${dateConvert.getDate(waitNewQuestionTime + 43200000)} da yayınlanacaktır.",
                 "Ana sayfaya Dön"
             )
             isNewQuesion = true
@@ -66,7 +69,7 @@ class EarnFragment : Fragment(), View.OnClickListener, QuestionListener {
         }
 
         view.visibility = View.GONE
-        currentTime = view.findViewById<TextView>(R.id.txtCurrentTime)
+        currentTime = view.findViewById(R.id.txtCurrentTime)
 
         answerA.setOnClickListener(this)
         answerB.setOnClickListener(this)
@@ -101,7 +104,7 @@ class EarnFragment : Fragment(), View.OnClickListener, QuestionListener {
                 alertType(
                     SweetAlertDialog.ERROR_TYPE,
                     "Süre bitti",
-                    "24 saat sonra tekrar yeniyi soruyu görebilirisin.",
+                    "12 saat sonra tekrar yeniyi soruyu görebilirisin.",
                     "Ana sayfaya Dön"
                 )
             }
@@ -137,12 +140,13 @@ class EarnFragment : Fragment(), View.OnClickListener, QuestionListener {
                     "Soruyu doğru bildiniz. Bu sayede ${question.questionPrice} altın kazandınız",
                     "Ana sayfaya Dön"
                 )
+                ShareDb.editUserTotal(requireContext(), question.questionPrice)
             }
             else -> {
                 alertType(
                     SweetAlertDialog.ERROR_TYPE,
                     "Kaybettiniz",
-                    "24 saat sonra yeni soru için mutlaka gel :)",
+                    "12 saat sonra yeni soru için mutlaka gel :)",
                     "Ana sayfaya Dön"
                 )
             }

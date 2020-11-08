@@ -28,16 +28,16 @@
     <fragment
         android:id="@+id/reportsFragment"
         android:name="com.monofire.appcentchallange.ui.user.ReportsFragment"
-        android:label="fragment_reports"
+        android:label="Raporlarım"
         tools:layout="@layout/fragment_reports" />
     <fragment
         android:id="@+id/campaignDetailFragment"
         android:name="com.monofire.appcentchallange.CampaignDetailFragment"
-        android:label="fragment_campaign_detail"
+        android:label="Kampanya Detayları"
         tools:layout="@layout/fragment_campaign_detail" />
     <fragment
         android:id="@+id/earnFragment"
         android:name="com.monofire.appcentchallange.EarnFragment"
-        android:label="fragment_earn"
+        android:label="Bil Kazan"
         tools:layout="@layout/fragment_earn" />
 </navigation>

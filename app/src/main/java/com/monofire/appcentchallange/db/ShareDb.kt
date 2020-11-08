@@ -18,6 +18,14 @@ object ShareDb {
 
     }
 
+    fun editUserTotal(context: Context, price: Int) {
+        val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+        val editor = sharedPreferences.edit()
+        editor.putInt("userTotal", price + getUserTotal(context))
+        editor.apply()
+    }
+
     fun getUserTotal(context: Context): Int {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
@@ -33,35 +41,36 @@ object ShareDb {
 
     fun setInfoCategoryCurrentTime(context: Context, time: Long) {
 
-        if (!getInfoCategoryisLogin(context)){
+        if (!getInfoCategoryisLogin(context)) {
             val sharedPreferences: SharedPreferences =
                 context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
             val editor = sharedPreferences.edit()
-            editor.putLong("categoryInfoTime", time)
+            editor.putLong("InfoTime", time)
             editor.apply()
             setInfoCategoryisLogin(context)
         }
 
     }
+
     fun getInfoCategoryCurrentTime(context: Context): Long {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        return sharedPreferences.getLong("categoryInfoTime",0)
+        return sharedPreferences.getLong("InfoTime", 0)
     }
-    fun setInfoCategoryisLogin(context: Context){
+
+    fun setInfoCategoryisLogin(context: Context) {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
         val editor = sharedPreferences.edit()
-        editor.putBoolean("categoryInfoIsLog",true)
+        editor.putBoolean("InfoIsLog", true)
         editor.apply()
     }
+
     fun getInfoCategoryisLogin(context: Context): Boolean {
         val sharedPreferences: SharedPreferences =
             context.getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-        return sharedPreferences.getBoolean("categoryInfoIsLog", false)
+        return sharedPreferences.getBoolean("InfoIsLog", false)
     }
-
-
 
 
 }

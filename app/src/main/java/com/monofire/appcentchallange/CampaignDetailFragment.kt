@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_campaign_detail.*
 
 class CampaignDetailFragment : Fragment() {
 
-    lateinit var dialog: SweetAlertDialog
+    lateinit var campaign: Campaign
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,8 +25,7 @@ class CampaignDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val campaign: Campaign = arguments?.getSerializable("campaingDetails") as Campaign
+        campaign= arguments?.getSerializable("campaingDetails") as Campaign
         Glide.with(view).load(campaign.campaingImage).placeholder(R.drawable.appcentlogo)
             .into(img_campaing)
         txtCampaingDetail.text = campaign.campaignDetail
@@ -34,7 +33,9 @@ class CampaignDetailFragment : Fragment() {
 
 
         btn_buy.setOnClickListener {
-            if (ShareDb.getUserTotal(requireContext()).toString().toInt() > campaign.campaingPrice.toInt()) {
+            if (ShareDb.getUserTotal(requireContext()).toString()
+                    .toInt() > campaign.campaingPrice.toInt()
+            ) {
                 campaignBuyCheck(true)
             } else {
                 campaignBuyCheck(false)
@@ -52,6 +53,7 @@ class CampaignDetailFragment : Fragment() {
                     "Ödeme Başarılı,",
                     "Kampanya dahilinde 24 saat geçerli olacaktır."
                 )
+                ShareDb.editUserTotal(requireContext(), -campaign.campaingPrice)
             }
             false -> {
                 alertType(SweetAlertDialog.ERROR_TYPE, "Ödeme Başarısız", "Bakiyeniz yetersizdir.")
@@ -68,7 +70,7 @@ class CampaignDetailFragment : Fragment() {
                 "AnaSayfaya Dön"
             ) {
 
-               findNavController().navigateUp()
+                findNavController().navigateUp()
                 it.cancel()
             }.show()
 
